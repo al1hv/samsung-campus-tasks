@@ -1,0 +1,186 @@
+#A list of dictionaries is given, each of which describes one specific car for sale. Dictionary elements: make, model, year of manufacture, price $
+You need to find:
+1) A list of all brands (one each)
+2) For each brand, output its models (one by one, without duplicates)
+3) For each model, output the minimum, maximum and average year of manufacture (get and output a list of dictionaries, where the elements will be: make, model, min. year, max. year, average.arif. year)
+4) Calculate the average price for each model (get and output a list of dictionaries, where the dictionary elements will be: brand, model, medium.arif. price)
+5) For each model, calculate the average price for the periods - up to 2010, from 2010 to 2015, from 2015 to now (get and display a list of dictionaries, where the dictionary elements will be: make, model, average.arif. price up to 2010, average arif. price from 2010 to 2015, average arif. price from 2015)
+
+
+cars = [
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2010, 'price': 15,000},
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2019, 'price': 27300},
+{'make': 'toyota', 'model': 'corolla', 'year of manufacture': 2011, 'price': 14000},
+{'make': 'bmw', 'model': '7', 'year of manufacture': 2017, 'price': 19500},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2019, 'price': 31000},
+{'make': 'bmw', 'model': '7', 'year of manufacture': 2015, 'price': 18000},
+{'make': 'toyota', 'model': 'corolla', 'year of manufacture': 2011, 'price': 15,000},
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2014, 'price': 17000},
+{'make': 'bmw', 'model': '5', 'year of manufacture': 2010, 'price': 9000},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2010, 'price': 16000},
+{'make': 'bmw', 'model': '7', 'year of manufacture': 2015, 'price': 18000},
+
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2014, 'price': 17300},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2021, 'price': 33500},
+{'make': 'bmw', 'model': '5', 'year of manufacture': 2008, 'price': 10000},
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2015, 'price': 17300},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2002, 'price': 6400},
+{'make': 'toyota', 'model': 'corolla', 'year of manufacture': 2013, 'price': 14900},
+{'make': 'bmw', 'model': '7', 'year of manufacture': 2015, 'price': 18000},
+{'make': 'toyota', 'model': 'corolla', 'year of manufacture': 2011, 'price': 15,000},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2002, 'price': 6400},
+{'make': 'bmw', 'model': '7', 'year of manufacture': 2011, 'price': 15500},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2012, 'price': 18000},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2020, 'price': 32000},
+{'make': 'bmw', 'model': '5', 'year of manufacture': 2005, 'price': 7000},
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2015, 'price': 17000},
+{'make': 'toyota', 'model': 'corolla', 'year of manufacture': 2014, 'price': 18500},
+{'make': 'toyota', 'model': 'camry', 'year of manufacture': 2000, 'price': 5800},
+{'make': 'nissan', 'model': 'qashqai', 'year of manufacture': 2009, 'price': 11000},
+{'make': 'bmw', 'model': '5', 'year of manufacture': 2018, 'price': 19000}
+]
+
+
+
+
+
+
+
+solution:
+cars = [
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 15000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2019, 'price': 27300},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 14000},
+ {'mark': 'bmw', 'model': '7', 'year': 2017, 'price': 19500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2019, 'price': 31000},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17000},
+ {'mark': 'bmw', 'model': '5', 'year': 2010, 'price': 9000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 16000},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17300},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2021, 'price': 33500},
+ {'mark': 'bmw', 'model': '5', 'year': 2008, 'price': 10000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2015, 'price': 17300},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2013, 'price': 14900},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400},
+ {'mark': 'bmw', 'model': '7', 'year': 2011, 'price': 15500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2012, 'price': 18000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2020, 'price': 32000},
+ {'mark': 'bmw', 'model': '5', 'year': 2005, 'price': 7000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2015, 'price': 17000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2014, 'price': 18500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2000, 'price': 5800},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2009, 'price': 11000},
+ {'mark': 'bmw', 'model': '5', 'year': 2018, 'price': 19000}
+]
+allmarks = list(set(map(lambda x: x['mark'] , cars)))
+print(allmarks)
+toyota1 = list(set(map(lambda x: x['model'] if 'toyota' in x['mark'] else '1',cars)))
+toyota1.remove('1')
+print(toyota1)
+bmw1 = list(set(map(lambda x: x['model'] if 'bmw' in x['mark'] else '1',cars)))
+bmw1.remove('1')
+print(bmw1)
+nissan1 = list(set(map(lambda x: x['model'] if 'nissan' in x['mark'] else '1',cars)))
+nissan1.remove('1')
+print(nissan1)
+
+toyotamodels = ''
+for i in toyota1:
+    #Добавляем к строке элемент списка
+    toyotamodels += str(i)
+    #Добавляем к строке разделитель — в данном случае пробел
+    toyotamodels += ', '
+print(toyotamodels)
+bmwmodels = ''
+for j in bmw1:
+    #Добавляем к строке элемент списка
+    bmwmodels += str(j)
+    #Добавляем к строке разделитель — в данном случае пробел
+    bmwmodels += ', '
+print(bmwmodels)
+nissanmodels = ''
+for k in nissan1:
+    #Добавляем к строке элемент списка
+    nissanmodels += str(k)
+    #Добавляем к строке разделитель — в данном случае пробел
+    nissanmodels += ', '
+print(nissanmodels)
+models = [
+    {'toyota models': toyotamodels},
+    {'bmw models': bmwmodels},
+    {'nissan models': nissanmodels},
+]
+print(models)
+toyotacamry = list(set(map(lambda x: x['year'] if 'camry' in x['model'] else '1', cars)))
+toyotacamry.remove('1')
+toyotacorolla = list(set(map(lambda x: x['year'] if 'corolla' in x['model'] else '1', cars)))
+toyotacorolla.remove('1')
+bmw5 = list(set(map(lambda x: x['year'] if '5' in x['model'] else '1', cars)))
+bmw5.remove('1')
+bmw7 = list(set(map(lambda x: x['year'] if '7' in x['model'] else '1', cars)))
+bmw7.remove('1')
+nissanqashqai = list(set(map(lambda x: x['year'] if 'qashqai' in x['model'] else '1', cars)))
+nissanqashqai.remove('1')
+
+models_year = [
+    {'toyota camry': f'минимальный год выпуска:{min(toyotacamry)}, средний год выпуска:{round((max(toyotacamry) + min(toyotacamry))/2)}, максимальный год выпуска:{max(toyotacamry)}' },
+    {'toyota corolla': f'минимальный год выпуска:{min(toyotacorolla)}, средний год выпуска:{round((max(toyotacorolla) + min(toyotacorolla))/2)}, максимальный год выпуска:{max(toyotacorolla)}' },
+    {'bmw 5': f'минимальный год выпуска:{min(bmw5)}, средний год выпуска:{round((max(bmw5) + min(bmw5))/2)}, максимальный год выпуска:{max(bmw5)}' },
+    {'bmw 7': f'минимальный год выпуска:{min(bmw7)}, средний год выпуска:{round((max(bmw7) + min(bmw7))/2)}, максимальный год выпуска:{max(bmw7)}' },
+    {'nissan qashqai': f'минимальный год выпуска:{min(nissanqashqai)}, средний год выпуска:{round((max(nissanqashqai) + min(nissanqashqai))/2)}, максимальный год выпуска:{max(nissanqashqai)}' }
+]
+print(models_year)
+toyotacamryprice = list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] else '1', cars))))
+toyotacorollaprice = list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] else '1', cars))))
+bmw5price = list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] else '1', cars))))
+bmw7price = list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] else '1', cars))))
+nissanqashqaiprice = list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] else '1', cars))))
+models_price = [
+    {'mark': 'toyota', 'model': 'camry', 'price': f'средняя цена автомобиля: {round(sum(toyotacamryprice)/len(toyotacamryprice))}'},
+    {'mark': 'toyota', 'model': 'corolla', 'price': f'средняя цена автомобиля: {round(sum(toyotacorollaprice)/len(toyotacorollaprice))}'},
+    {'mark': 'bmw', 'model': '5', 'price': f'средняя цена автомобиля: {round(sum(bmw5price)/len(bmw5price))}'},
+    {'mark': 'bmw', 'model': '7', 'price': f'средняя цена автомобиля: {round(sum(bmw7price)/len(bmw7price))}'},
+    {'mark': 'nissan', 'model': 'qashqai', 'price': f'средняя цена автомобиля: {round(sum(nissanqashqaiprice)/len(nissanqashqaiprice))}'}
+]
+print(models_price)
+toyotacamrydo2010 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and x['year'] < 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and x['year'] < 2010 else '1', cars))))))
+toyotacamrys2010do2015 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars))))))
+toyotacamrys2015dosegodnya = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'camry' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars))))))
+#dwasdawsdwasdwasdwasdawsawsdawqa
+toyotacorollado2010 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and x['year'] < 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and x['year'] < 2010 else '1', cars)))))) if len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and x['year'] < 2010 else '1', cars))))) > 0 else 'неизвестно'# дeлeние на ноль
+toyotacorollas2010do2015 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars))))))
+toyotacorollas2015dosegodnya = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))) if len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'corolla' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars))))) > 0 else "неизвестно" # деление на ноль
+#dwasdwasdawsdwasdwasdwasdwasdw
+bmw5do2010 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and x['year'] < 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and x['year'] < 2010 else '1', cars))))))
+bmw5s2010do2015 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars))))))
+bmw5s2015dosegodnya = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '5' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars))))))
+#dwasdawsdwasdwasdwasdwasdwasdwasdwasdwas
+bmw7do2010 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and x['year'] < 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and x['year'] < 2010 else '1', cars)))))) if len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and x['year'] < 2010 else '1', cars))))) > 0 else "неизвестно" # дeлeние на ноль
+bmw7s2010do2015 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars))))))
+bmw7s2015dosegodnya = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars))))))
+#dawasdwasdwasdwadasdwasdwasdwasdwasdad
+nissanqashqaido2010 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and x['year'] < 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and x['year'] < 2010 else '1', cars)))))) if len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if '7' in x['model'] and x['year'] < 2010 else '1', cars))))) > 0 else "неизвестно" # дeлeние на ноль
+nissanqashqais2010do2015 = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and 2015 > x['year'] >= 2010 else '1', cars))))))
+nissanqashqais2015dosegodnya = round(sum(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars)))))/len(list(filter(lambda x: None if x == '1' else x, list(map(lambda x: x['price'] if 'qashqai' in x['model'] and 2023 > x['year'] >= 2015 else '1', cars))))))
+#dawasdwasdwasdwadasdwasdwasdwasdwasdadnissanqashqai
+pricesperiodom =[
+    {'mark': 'toyota', 'model': 'camry', 'sr_pricedo_2021': toyotacamrydo2010 , 'sr_price_s2010d02015': toyotacamrys2010do2015 , 'sr_price_s2015dosegodnya': toyotacamrys2015dosegodnya },
+    {'mark': 'toyota', 'model': 'corolla','sr_pricedo_2021': toyotacorollado2010 , 'sr_price_s2010d02015': toyotacorollas2010do2015 , 'sr_price_s2015dosegodnya': toyotacorollas2015dosegodnya },
+    {'mark': 'bmw', 'model': '5', 'sr_pricedo_2021': bmw5do2010 , 'sr_price_s2010d02015': bmw5s2010do2015 , 'sr_price_s2015dosegodnya': bmw5s2015dosegodnya },
+    {'mark': 'bmw', 'model': '7', 'sr_pricedo_2021': bmw7do2010 , 'sr_price_s2010d02015': bmw7s2010do2015 , 'sr_price_s2015dosegodnya': bmw7s2015dosegodnya},
+    {'mark': 'bmw', 'model': 'qashqai', 'sr_pricedo_2021': nissanqashqaido2010 , 'sr_price_s2010d02015': nissanqashqais2010do2015 , 'sr_price_s2015dosegodnya': nissanqashqais2015dosegodnya}
+]
+print(pricesperiodom)
+
+
+
+
+
+
