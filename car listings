@@ -46,7 +46,7 @@ cars = [
 
 
 
-solution:
+solution: (the solution is stupid, but by that time I had just started learning python and programming in general and did not know about the grouping method)
 cars = [
 {'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 15000},
  {'mark': 'nissan', 'model': 'qashqai', 'year': 2019, 'price': 27300},
