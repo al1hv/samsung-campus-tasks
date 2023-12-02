@@ -182,5 +182,96 @@ print(pricesperiodom)
 
 
 
+#better solution:
+
+cars = [
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 15000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2019, 'price': 27300},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 14000},
+ {'mark': 'bmw', 'model': '7', 'year': 2017, 'price': 19500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2019, 'price': 31000},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17000},
+ {'mark': 'bmw', 'model': '5', 'year': 2010, 'price': 9000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 16000},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17300},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2021, 'price': 33500},
+ {'mark': 'bmw', 'model': '5', 'year': 2008, 'price': 10000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2015, 'price': 17300},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2013, 'price': 14900},
+ {'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400},
+ {'mark': 'bmw', 'model': '7', 'year': 2011, 'price': 15500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2012, 'price': 18000},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2020, 'price': 32000},
+ {'mark': 'bmw', 'model': '5', 'year': 2005, 'price': 7000},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2015, 'price': 17000},
+ {'mark': 'toyota', 'model': 'corolla', 'year': 2014, 'price': 18500},
+ {'mark': 'toyota', 'model': 'camry', 'year': 2000, 'price': 5800},
+ {'mark': 'nissan', 'model': 'qashqai', 'year': 2009, 'price': 11000},
+ {'mark': 'bmw', 'model': '5', 'year': 2018, 'price': 19000}
+]
+marks = list(set(map( lambda x : x['mark'] , cars)))
+print(marks)
+
+d = {}
+for mark in marks:
+  cars_of_mark = list(filter( lambda x : x["mark"] == mark , cars))
+  models_of_mark = list(set(map( lambda x: x["model"] , cars_of_mark)))
+  # print(mark, models_of_mark)
+  d[mark] = models_of_mark
+print(d)
+
+models = list(set(map( lambda x : x['model'] , cars)))
+print(models)
+lst = list()
+for model in models:
+  cars_of_model = list(filter( lambda x : x["model"] == model , cars))
+  years_of_model = list(map( lambda x : x["year"] , cars_of_model))
+  # print(model, years_of_model)
+  min_year = min(years_of_model)
+  max_year = max(years_of_model)
+  avg_year = sum(years_of_model) / len(years_of_model)
+  model_info = {
+      "model": model,
+      "min": min_year,
+      "max": max_year,
+      "avg": round(avg_year, 2)
+  }
+  lst.append(model_info)
+print(lst)
+
+lst = list()
+for model in models:
+  cars_of_model = list(filter( lambda x : x["model"] == model , cars)) #напр. все camry
+  cars_of_model1 = list(filter( lambda x : x["year"] < 2010 , cars_of_model)) # < 10
+  cars_of_model2 = list(filter( lambda x : 2010 <= x["year"] <= 2015  , cars_of_model)) # 10<=x<=15
+  cars_of_model3 = list(filter( lambda x : x["year"] > 2015 , cars_of_model)) # > 15
+
+  price_of_model1 = list(map( lambda x: x["price"] , cars_of_model1))
+  price_of_model2 = list(map( lambda x: x["price"] , cars_of_model2))
+  price_of_model3 = list(map( lambda x: x["price"] , cars_of_model3))
+
+  avg_of_model1 = None if len(price_of_model1) == 0 else sum(price_of_model1) // len(price_of_model1)
+  avg_of_model2 = None if len(price_of_model2) == 0 else sum(price_of_model2) // len(price_of_model2)
+  avg_of_model3 = None if len(price_of_model3) == 0 else sum(price_of_model3) // len(price_of_model3)
+
+  d = {
+      "model" : model,
+      "<10" : avg_of_model1,
+      "10-15": avg_of_model2,
+      ">15": avg_of_model3
+  }
+  lst.append(d)
+ 
+
+print(lst)
+
+
 
 
