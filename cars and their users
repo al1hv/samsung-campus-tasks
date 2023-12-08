@@ -1,0 +1,301 @@
+Analyze the list of dictionaries with cars (the last int is the ID of the owner) and the list of dictionaries with owners
+To find:
+1) Find the average age of men and women
+2) For each model, output the average age of the owner 3) For each brand, output the ratio of the sexes of the owners as a percentage (60% - 40%)
+4) For each model, output the ratio of the sexes of the owners as a percentage (60% - 40%)
+5) For each of the age groups (under 25, 25-40, from 40), display the most popular brands (one at a time, you can top 2)
+6) For each of the age groups (under 25, 25-40, from 40), output the average year of manufacture of their car
+7) For each of the age groups (under 25, 25-40, from 40), output the average cost of their car
+cars = [
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 15000, 'id': 1},
+{'mark': 'nissan', 'model': 'qashqai', 'year': 2019, 'price': 27300, 'id': 2},
+{'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 14000, 'id': 3},
+{'mark': 'bmw', 'model': '7', 'year': 2017, 'price': 19500, 'id': 4},
+{'mark': 'toyota', 'model': 'camry', 'year': 2019, 'price': 31000, 'id': 5},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 6},
+{'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000, 'id': 7},
+{'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17000, 'id': 8},
+{'mark': 'bmw', 'model': '5', 'year': 2010, 'price': 9000, 'id': 9},
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 16000, 'id': 10},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 11},
+{'mark': 'nissan','model': 'qashqai','year': 2014,'price': 17300,'id': 12},
+{'mark': 'toyota', 'model': 'camry', 'year': 2021, 'price': 33500, 'id': 13},
+{'mark': 'bmw', 'model': '5', 'year': 2008, 'price': 10000, 'id': 14},
+{'mark': 'nissan','model': 'qashqai','year': 2015,'price': 17300,'id': 15},
+{'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400, 'id': 16},
+{'mark': 'toyota','model': 'corolla','year': 2013,'price': 14900,'id': 17},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 18},
+{'mark': 'toyota','model': 'corolla','year': 2011,'price': 15000,'id': 19},
+{'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400, 'id': 20},
+{'mark': 'bmw', 'model': '7', 'year': 2011, 'price': 15500, 'id': 21},
+{'mark': 'toyota', 'model': 'camry', 'year': 2012, 'price': 18000, 'id': 22},
+{'mark': 'toyota', 'model': 'camry', 'year': 2020, 'price': 32000, 'id': 23},
+{'mark': 'bmw', 'model': '5', 'year': 2005, 'price': 7000, 'id': 24},
+{'mark': 'nissan','model': 'qashqai','year': 2015,'price': 17000,'id': 25},
+{'mark': 'toyota','model': 'corolla','year': 2014,'price': 18500,'id': 26},
+{'mark': 'toyota', 'model': 'camry', 'year': 2000, 'price': 5800, 'id': 27},
+{'mark': 'nissan','model': 'qashqai','year': 2009,'price': 11000,'id': 28},
+{'mark': 'bmw', 'model': '5', 'year': 2018, 'price': 19000, 'id': 29}
+]
+
+
+people = [{"id": 1, "is_male": True, "age": 35},
+          {"id": 2, "is_male": True, "age": 39},
+          {"id": 3, "is_male": False, "age": 32},
+          {"id": 4, "is_male": True, "age": 21},
+          {"id": 5, "is_male": False, "age": 58},
+          {"id": 6, "is_male": False, "age": 20},
+          {"id": 7, "is_male": True, "age": 28},
+          {"id": 8, "is_male": False, "age": 47},
+          {"id": 9, "is_male": True, "age": 46},
+          {"id": 10, "is_male": True, "age": 39},
+          {"id": 11, "is_male": False, "age": 31},
+          {"id": 12, "is_male": True, "age": 25},
+          {"id": 13, "is_male": False, "age": 49},
+          {"id": 14, "is_male": False, "age": 50},
+          {"id": 15, "is_male": True, "age": 57},
+          {"id": 16, "is_male": False, "age": 24},
+          {"id": 17, "is_male": True, "age": 34},
+          {"id": 18, "is_male": True, "age": 40},
+          {"id": 19, "is_male": False, "age": 41},
+          {"id": 20, "is_male": True, "age": 52},
+          {"id": 21, "is_male": False, "age": 29},
+          {"id": 22, "is_male": True, "age": 25},
+          {"id": 23, "is_male": False, "age": 33},
+          {"id": 24, "is_male": True, "age": 39},
+          {"id": 25, "is_male": True, "age": 48},
+          {"id": 26, "is_male": False, "age": 47},
+          {"id": 27, "is_male": False, "age": 35},
+          {"id": 28, "is_male": False, "age": 31},
+          {"id": 29, "is_male": True, "age": 46}
+]
+
+
+
+
+solution:
+cars = [
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 15000, 'id': 1},
+{'mark': 'nissan', 'model': 'qashqai', 'year': 2019, 'price': 27300, 'id': 2},
+{'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 14000, 'id': 3},
+{'mark': 'bmw', 'model': '7', 'year': 2017, 'price': 19500, 'id': 4},
+{'mark': 'toyota', 'model': 'camry', 'year': 2019, 'price': 31000, 'id': 5},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 6},
+{'mark': 'toyota', 'model': 'corolla', 'year': 2011, 'price': 15000, 'id': 7},
+{'mark': 'nissan', 'model': 'qashqai', 'year': 2014, 'price': 17000, 'id': 8},
+{'mark': 'bmw', 'model': '5', 'year': 2010, 'price': 9000, 'id': 9},
+{'mark': 'toyota', 'model': 'camry', 'year': 2010, 'price': 16000, 'id': 10},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 11},
+{'mark': 'nissan','model': 'qashqai','year': 2014,'price': 17300,'id': 12},
+{'mark': 'toyota', 'model': 'camry', 'year': 2021, 'price': 33500, 'id': 13},
+{'mark': 'bmw', 'model': '5', 'year': 2008, 'price': 10000, 'id': 14},
+{'mark': 'nissan','model': 'qashqai','year': 2015,'price': 17300,'id': 15},
+{'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400, 'id': 16},
+{'mark': 'toyota','model': 'corolla','year': 2013,'price': 14900,'id': 17},
+{'mark': 'bmw', 'model': '7', 'year': 2015, 'price': 18000, 'id': 18},
+{'mark': 'toyota','model': 'corolla','year': 2011,'price': 15000,'id': 19},
+{'mark': 'toyota', 'model': 'camry', 'year': 2002, 'price': 6400, 'id': 20},
+{'mark': 'bmw', 'model': '7', 'year': 2011, 'price': 15500, 'id': 21},
+{'mark': 'toyota', 'model': 'camry', 'year': 2012, 'price': 18000, 'id': 22},
+{'mark': 'toyota', 'model': 'camry', 'year': 2020, 'price': 32000, 'id': 23},
+{'mark': 'bmw', 'model': '5', 'year': 2005, 'price': 7000, 'id': 24},
+{'mark': 'nissan','model': 'qashqai','year': 2015,'price': 17000,'id': 25},
+{'mark': 'toyota','model': 'corolla','year': 2014,'price': 18500,'id': 26},
+{'mark': 'toyota', 'model': 'camry', 'year': 2000, 'price': 5800, 'id': 27},
+{'mark': 'nissan','model': 'qashqai','year': 2009,'price': 11000,'id': 28},
+{'mark': 'bmw', 'model': '5', 'year': 2018, 'price': 19000, 'id': 29}
+]
+
+
+people = [{"id": 1, "is_male": True, "age": 35},
+          {"id": 2, "is_male": True, "age": 39},
+          {"id": 3, "is_male": False, "age": 32},
+          {"id": 4, "is_male": True, "age": 21},
+          {"id": 5, "is_male": False, "age": 58},
+          {"id": 6, "is_male": False, "age": 20},
+          {"id": 7, "is_male": True, "age": 28},
+          {"id": 8, "is_male": False, "age": 47},
+          {"id": 9, "is_male": True, "age": 46},
+          {"id": 10, "is_male": True, "age": 39},
+          {"id": 11, "is_male": False, "age": 31},
+          {"id": 12, "is_male": True, "age": 25},
+          {"id": 13, "is_male": False, "age": 49},
+          {"id": 14, "is_male": False, "age": 50},
+          {"id": 15, "is_male": True, "age": 57},
+          {"id": 16, "is_male": False, "age": 24},
+          {"id": 17, "is_male": True, "age": 34},
+          {"id": 18, "is_male": True, "age": 40},
+          {"id": 19, "is_male": False, "age": 41},
+          {"id": 20, "is_male": True, "age": 52},
+          {"id": 21, "is_male": False, "age": 29},
+          {"id": 22, "is_male": True, "age": 25},
+          {"id": 23, "is_male": False, "age": 33},
+          {"id": 24, "is_male": True, "age": 39},
+          {"id": 25, "is_male": True, "age": 48},
+          {"id": 26, "is_male": False, "age": 47},
+          {"id": 27, "is_male": False, "age": 35},
+          {"id": 28, "is_male": False, "age": 31},
+          {"id": 29, "is_male": True, "age": 46}
+]
+mvo = round(sum(list(map(lambda x: x['age'], list(filter(lambda x: x['is_male'] if True else None, people)))))/len(list(map(lambda x: x['age'], list(filter(lambda x: x['is_male'] if True else None, people))))))
+print(f'средний возраст мужчин равен {mvo} лет')
+dvo = round(sum(list(map(lambda x: x['age'], list(filter(lambda x: not x["is_male"], people)))))/len(list(map(lambda x: x['age'], list(filter(lambda x: not x["is_male"], people))))))
+print(f'средний возраст женщин равен {dvo} лет')
+models = list(set(map( lambda x : x['model'] , cars)))
+sr = {}
+for model in models:
+   cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+   owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+   owners_of_cars = list(filter( lambda x : x["id"] in owners_ids , people))
+   age_of_owners = list(map(lambda x: x['age'] ,owners_of_cars))
+   sr_v = round(sum(age_of_owners)/len(age_of_owners))
+  #  print(f'{model}-',f' средний возраст пользователей данний модели: {sr_v} лет')
+   sr[model] = f' средний возраст пользователей данний модели: {sr_v} лет'
+
+print(sr)
+print()
+o = []
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids , people))
+  malee = list(filter(lambda x: x[ "is_male"] == True, owners_of_cars))
+  femalee = list(filter(lambda x: x[ "is_male"] == False, owners_of_cars))
+  malee1 = round(len(malee) /  len(owners_of_cars) * 100)
+  femalee1 = round(len(femalee) /  len(owners_of_cars) * 100)
+  o.append({"model" : model, "male: ": malee1, "female": femalee1  })
+print(o)
+dsa = list(set(map(lambda x: x['mark'], cars)))
+a = []
+for i in dsa:
+  cars_of_dfa = list(filter( lambda x : x["mark"]==i , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_dfa))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids , people))
+  malee = list(filter(lambda x: x[ "is_male"] == True, owners_of_cars))
+  femalee = list(filter(lambda x: x[ "is_male"] == False, owners_of_cars))
+  malee1 = round(len(malee) /  len(owners_of_cars) * 100)
+  femalee1 = round(len(femalee) /  len(owners_of_cars) * 100)
+  a.append({"model" : i, "male: ": malee1, "female": femalee1  })
+print(a)
+b = {}
+for j in dsa:
+  cars_of_dfa = list(filter( lambda x : x["mark"]==j , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_dfa))
+  owners_of_cars = len(list(filter( lambda x : x["id"] in owners_ids and x["age"]<=25 , people)))
+  b[j] = owners_of_cars
+if b['bmw'] > b['nissan'] and b['bmw'] > b['toyota']:
+   most_popular25 = 'bmw'
+elif b['nissan'] > b['bmw'] and b['nissan'] > b['toyota']:
+   most_popular25 = 'nissan'
+elif b['toyota'] > b['bmw'] and b['toyota'] > b['nissan']:
+   most_popular25 = 'toyota'
+elif b['bmw'] == b['toyota']:
+   most_popular25 = 'toyota and bmw'
+elif b['bmw'] == b['nissan']:
+  most_popular25 = 'bmw and nissan'
+elif b['bmw'] == b['touota']:
+  most_popular25 = 'bmw and toyota'
+else:
+  most_popular25 = 'all'
+
+print(f'самая популярная марка среди пользователей до 25 лет это {most_popular25}')
+for j in dsa:
+  cars_of_dfa = list(filter( lambda x : x["mark"]==j , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_dfa))
+  owners_of_cars = len(list(filter( lambda x : x["id"] in owners_ids and x["age"]>=25 and x["age"]<= 40 , people)))
+  b[j] = owners_of_cars
+if b['bmw'] > b['nissan'] and b['bmw'] > b['toyota']:
+   most_popular25_40 = 'bmw'
+elif b['nissan'] > b['bmw'] and b['nissan'] > b['toyota']:
+   most_popular25_40 = 'nissan'
+elif b['toyota'] > b['bmw'] and b['toyota'] > b['nissan']:
+   most_popular25_40 = 'toyota'
+elif b['bmw'] == b['toyota']:
+   most_popular25_40 = 'toyota and bmw'
+elif b['bmw'] == b['nissan']:
+  most_popular25_40 = 'bmw and nissan'
+elif b['bmw'] == b['touota']:
+  most_popular25_40 = 'bmw and toyota'
+else:
+  most_popular25_40 = 'all'
+print(f'самая популярная марка среди пользователей с 25 до 40 лет это {most_popular25_40}')
+for j in dsa:
+  cars_of_dfa = list(filter( lambda x : x["mark"]==j , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_dfa))
+  owners_of_cars = len(list(filter( lambda x : x["id"] in owners_ids and x["age"]>40 , people)))
+  b[j] = owners_of_cars
+if b['bmw'] > b['nissan'] and b['bmw'] > b['toyota']:
+   most_popular40more = 'bmw'
+elif b['nissan'] > b['bmw'] and b['nissan'] > b['toyota']:
+   most_popular40more = 'nissan'
+elif b['toyota'] > b['bmw'] and b['toyota'] > b['nissan']:
+   most_popular40more = 'toyota'
+elif b['bmw'] == b['toyota']:
+   most_popular40more = 'toyota and bmw'
+elif b['bmw'] == b['nissan']:
+  most_popular40more = 'bmw and nissan'
+elif b['bmw'] == b['touota']:
+  most_popular40more = 'bmw and toyota'
+else:
+  most_popular40more = 'all'
+print(f'самая популярная марка среди пользователей с 40 и выше  это {most_popular40more}')
+print()
+c = []
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and x["age"]<=25 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_year_of_release = round(sum(list(map(lambda x: x['year'],carsbelow25 )))/len(list(map(lambda x: x['year'],carsbelow25 )))) if len(list(map(lambda x: x['year'],carsbelow25 ))) != 0 or None else "неизвестно"
+
+  print(f'средний год выпуска модели это "{model}" = ', average_year_of_release)
+print()
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and 25 <= x["age"]<=40 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_year_of_release = round(sum(list(map(lambda x: x['year'],carsbelow25 )))/len(list(map(lambda x: x['year'],carsbelow25 )))) if len(list(map(lambda x: x['year'],carsbelow25 ))) != 0 or None else "неизвестно"
+
+  print(f'средний год выпуска модели "{model}" = ', average_year_of_release)
+print()
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and x["age"]>= 40 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_year_of_release = round(sum(list(map(lambda x: x['year'],carsbelow25 )))/len(list(map(lambda x: x['year'],carsbelow25 )))) if len(list(map(lambda x: x['year'],carsbelow25 ))) != 0 or None else "неизвестно"
+
+  print(f'средний год выпуска модели "{model}" = ', average_year_of_release)
+print()
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and x["age"]<=25 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_price = round(sum(list(map(lambda x: x['price'],carsbelow25 )))/len(list(map(lambda x: x['price'],carsbelow25 )))) if len(list(map(lambda x: x['price'],carsbelow25 ))) != 0 or None else "неизвестно"
+  print(f'средняя цена модели "{model}"  = ', average_price)
+
+print()
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and 40>=x["age"]>=25 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_price = round(sum(list(map(lambda x: x['price'],carsbelow25 )))/len(list(map(lambda x: x['price'],carsbelow25 )))) if len(list(map(lambda x: x['price'],carsbelow25 ))) != 0 or None else "неизвестно"
+  print(f'средняя цена модели "{model}" = ', average_price)
+
+print()
+for model in models:
+  cars_of_models = list(filter( lambda x : x["model"]==model , cars))
+  owners_ids = list(map( lambda x : x["id"] , cars_of_models))
+  owners_of_cars = list(filter( lambda x : x["id"] in owners_ids and x["age"]>=40 , people))
+  ownersids = list(map(lambda x: x['id'] , owners_of_cars))
+  carsbelow25 = list(filter(lambda x: x['id'] in ownersids, cars))
+  average_price = round(sum(list(map(lambda x: x['price'],carsbelow25 )))/len(list(map(lambda x: x['price'],carsbelow25 )))) if len(list(map(lambda x: x['price'],carsbelow25 ))) != 0 or None else "неизвестно"
+  print(f'средняя цена модели "{model}" = ', average_price)
